@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>page3</title>
+    <style>
+        #btn{
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <p>Ваше имя:<input id="Name" /></p>
+    <p>Ваше отчество:<input id="MidName" /></p>
+    <button id="btn">Ввести данные</button>
+    <p id="message"></p>
+    
+    <script>
+        var Name = ""
+        var MidName = ""
+        function hello(){
+            let buf_Name = document.querySelector('#Name')
+            let buf_MidName = document.querySelector('#MidName')
+            
+            if(buf_Name.value == Name && buf_MidName.value == MidName)
+                {
+                    if (buf_Name.value == "") {
+                        alert ("Вы не указали имя!")
+                    }
+                }
+            else{
+                if (buf_Name.value == "") {
+                alert ("Вы не указали имя!")
+                }
+                else {
+                    let text =""
+                    if (Name != "")
+                        {
+                            text = `Пока, ${Name} ${MidName}! `
+                        }
+                    Name = buf_Name.value
+                    MidName = buf_MidName.value
+                    let message = document.querySelector('#message')
+                    text += `Здравствуйте, ${Name} ${MidName}!`
+                    message.innerHTML = text
+                }
+            }  
+        }
+        let btn = document.querySelector('#btn')
+        btn.addEventListener('click', hello)
+    </script>
+</body>
+</html>
